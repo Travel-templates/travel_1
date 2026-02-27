@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import { Suspense } from 'react';
 import { PackagesPageContent } from '@/components/pages/PackagesPageContent';
 
 export const metadata: Metadata = {
@@ -7,5 +8,9 @@ export const metadata: Metadata = {
 };
 
 export default function PackagesPage() {
-    return <PackagesPageContent />;
+    return (
+        <Suspense fallback={<main className="pt-[var(--header-height)]" />}>
+            <PackagesPageContent />
+        </Suspense>
+    );
 }
